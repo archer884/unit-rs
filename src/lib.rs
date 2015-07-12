@@ -30,9 +30,9 @@ pub trait Unit: Sized {
 
 // #[macro_export] // not sure this ought to be exported; it's kind of lame...
 
-// For my viewers, I'll explain what I mean: this macro doesn't derive `Eq` because of the 
-// possibility that your data type will be `f64`, in which case it's not possible to get 
-// an implementation of `Eq` at all. If I were going to make a serious library for doing 
+// For my viewers, I'll explain what I mean: this macro doesn't derive `Eq` because of the
+// possibility that your data type will be `f64`, in which case it's not possible to get
+// an implementation of `Eq` at all. If I were going to make a serious library for doing
 // this and export a macro to build a unit type for my users, I'd want it to be smart
 // enough to deal with non-`Eq` types like that.
 macro_rules! unit {
@@ -66,7 +66,7 @@ macro_rules! unit {
                 Self::new(self.value() + rhs)
             }
         }
-f
+
         impl<T> ::std::ops::Sub<T> for $typename where
             T: Unit<Data=<$typename as Unit>::Data, Base=<$typename as Unit>::Base>
         {
