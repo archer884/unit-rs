@@ -125,11 +125,16 @@ mod tests {
     unit!(Centimeters, Meters, f64, 100.0);
     unit!(Yards, Meters, f64, 1.09361);
     unit!(Feet, Self, f64, 1.0);
-    unit!(Inches, Feet, f64, 1.0);
+    unit!(Inches, Feet, f64, 12.0);
 
     #[test]
     fn can_convert_centimeters_to_meters() {
         assert!(2.0 == (Centimeters(100.0).to::<Meters>() + Meters(1.0)).value());
+    }
+
+    #[test]
+    fn can_convert_inches_to_feet() {
+        assert!(2.0 == Inches(24.0).to::<Feet>().value());
     }
 
     #[test]
