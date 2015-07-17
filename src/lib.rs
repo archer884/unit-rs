@@ -51,6 +51,14 @@ macro_rules! unit {
             }
         }
 
+        impl<T> From<T> for $typename where
+            T: Unit<Data=<$typename as Unit>::Data, Base=<$typename as Unit>::Base>
+        {
+            fn from(unit: T) -> Self {
+                $typename::from_base(unit.to_base())
+            }
+        }
+
         impl<T> ::std::ops::Add<T> for $typename where
             T: Unit<Data=<$typename as Unit>::Data, Base=<$typename as Unit>::Base>
         {
